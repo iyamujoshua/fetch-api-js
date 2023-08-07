@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+</head>
+<body>
+    <button id="fetchButton">Fetch Random Quote</button>
+    <div id="quoteContainer"></div>
+
+    <script>
+        const fetchButton = document.getElementById('fetchButton');
+        const quoteContainer = document.getElementById('quoteContainer');
+
+        fetchButton.addEventListener('click', () => {
+            fetch('https://api.quotable.io/random')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const quote = data.content;
+                    quoteContainer.textContent = quote;
+                })
+                .catch(error => {
+                    quoteContainer.textContent = 'An error occurred while fetching the quote.';
+                    console.error('Fetch error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
