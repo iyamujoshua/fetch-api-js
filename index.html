@@ -6,7 +6,7 @@
     <title>Random Quotes</title>
 </head>
 <body>
-    <button id="fetchButton">Fetch Random Quote</button>
+    <button id="fetchButton">Random Quote</button>
     <div id="quoteContainer"></div>
 
     <script>
@@ -30,6 +30,16 @@
                     console.error('Fetch error:', error);
                 });
         });
+
+
+        const button = document.getElementById('myButton');
+
+// Attach an event listener to the button element
+button.addEventListener('click', () => {
+    // Code to execute when the button is clicked
+    console.log('Button clicked!');
+});
+
     </script>
 </body>
 </html>
